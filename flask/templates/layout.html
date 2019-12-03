@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>White Edition</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css')}}">
+</head>
+<body>
+<header>
+  <nav class="main-nav">
+    <ul>
+      <li>
+        <ul>
+          <li><a href="{{ url_for('home')}}" class="active">Home</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="{{ url_for('contact')}}">Contact</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+<section id="video" class="home">
+  <h1>FOLSE</h1>
+  <h2>Fund Objectives Linguistic Search Engine</h2>
+</section>
+{% block content %} {% endblock %}
+<footer>
+  <div class="copyright"><small>Copyright. All Rights Reserved | by <a target="_blank" rel="nofollow" href="#">Fakruddin, John, Stefan and Vivek</a>.</small></div>
+</footer>
+</body>
+</html>

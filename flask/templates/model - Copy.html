@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+{% block content %}
+<section id="main-content">
+  <div class="text-intro">
+    <h2>Linguistic Search</h2>
+  </div>
+  <div class="columns features">
+    <form action="#" method="post" id="contact-form">
+      <!--textarea id="message" maxlength="1000" name="message" placeholder="Investor Objectives ?" value="{{request.form['message']}}" ></textarea-->
+	  <textarea id="message" maxlength="1000" name="message" placeholder="Investor Objectives ?" >{{ message }}</textarea>
+      <div class="crayonico"></div>
+      <input class="btn btn-input" id="sendMessage" name="sendMessage" type="submit" value="Find Funds">
+    </form>
+  </div>
+  <div class="table100 ver1 m-b-100">
+					<table data-vertable="ver1">
+						<thead>
+							<tr class="row100 head">
+								<th class="column100 column1" data-column="column1">Glove</th>
+								<th class="column100 column2" data-column="column2">Cosine</th>
+								<th class="column100 column4" data-column="column4">LSA</th>
+								<th class="column100 column3" data-column="column3">Elmo</th>
+								<th class="column100 column5" data-column="column5">Word2Vec</th>
+								<th class="column100 column6" data-column="column6">WordVec+LSA</th>
+								<th class="column100 column7" data-column="column7">USE</th>
+								<th class="column100 column8" data-column="column8">BERT</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="row100">
+								<td class="column100 column1" data-column="column1"></td>
+								<td class="column100 column2" data-column="column2"></td>
+								<td class="column100 column3" data-column="column3"></td>
+								<td class="column100 column4" data-column="column4"></td>
+								<td onclick="myFunction('{{topFunds[0]}}')" class="column100 column5" data-column="column5" title="{{topFunds[0]}}">{{ sim_scores['Word2Vec'][0] }}</td>
+								<td class="column100 column6" data-column="column6"></td>
+								<td class="column100 column7" data-column="column7"></td>
+								<td class="column100 column8" data-column="column8"></td>
+							</tr>
+
+							<tr class="row100">
+								<td class="column100 column1" data-column="column1"></td>
+								<td class="column100 column2" data-column="column2"></td>
+								<td class="column100 column3" data-column="column3"></td>
+								<td class="column100 column4" data-column="column4"></td>
+								<td class="column100 column5" data-column="column5" title="{{topFunds[1]}}" onclick="myFunction('{{topFunds[1]}}')" >{{ sim_scores['Word2Vec'][1] }}</td>
+								<td class="column100 column6" data-column="column6"></td>
+								<td class="column100 column7" data-column="column7"></td>
+								<td class="column100 column8" data-column="column8"></td>
+							</tr>
+
+							<tr class="row100">
+								<td class="column100 column1" data-column="column1"></td>
+								<td class="column100 column2" data-column="column2"></td>
+								<td class="column100 column3" data-column="column3"></td>
+								<td class="column100 column4" data-column="column4"></td>
+								<td class="column100 column5" data-column="column5" title="{{topFunds[2]}}" onclick="myFunction('{{topFunds[2]}}')" >{{ sim_scores['Word2Vec'][2] }}</td>
+								<td class="column100 column6" data-column="column6"></td>
+								<td class="column100 column7" data-column="column7"></td>
+								<td class="column100 column8" data-column="column8"></td>
+							</tr>
+
+							<tr class="row100">
+								<td class="column100 column1" data-column="column1"></td>
+								<td class="column100 column2" data-column="column2"></td>
+								<td class="column100 column3" data-column="column3"></td>
+								<td class="column100 column4" data-column="column4"></td>
+								<td class="column100 column5" data-column="column5" title="{{topFunds[3]}}" onclick="myFunction('{{topFunds[0]}}')" >{{ sim_scores['Word2Vec'][3] }}</td>
+								<td class="column100 column6" data-column="column6"></td>
+								<td class="column100 column7" data-column="column7"></td>
+								<td class="column100 column8" data-column="column8"></td>
+							</tr>
+
+							
+
+							
+						</tbody>
+					</table>
+				</div>
+				
+  <!--div class="columns features">
+    <div class="one-third first">
+      <h3>Minimal</h3>
+      <p>Bacon ipsum dolor sit amet cow ham beef, ground round t-bone meatloaf fatback sirloin pork chop swine pig. Venison shoulder prosciutto turkey tri-tip kielbasa andouille ham hock beef ribs. Meatloaf meatball doner filet mignon shankle.</p>
+      <p><a href="#" class="more">En savoir plus</a></p>
+    </div>
+    <div class="one-third">
+      <h3>HTML5/CSS3</h3>
+      <p>Chuck venison short ribs, pork loin strip steak turducken chicken boudin doner tail cow pork chop spare ribs.</p>
+      <p><a href="#" class="more">En savoir plus</a></p>
+    </div>
+    <div class="one-third">
+      <h3>Totally Free</h3>
+      <p>Capicola prosciutto shankle frankfurter ham hock. Beef ribs t-bone rump, short ribs jerky turkey ham capicola pancetta filet mignon turducken boudin biltong venison shank.</p>
+      <p><a href="#" class="more">En savoir plus</a></p>
+    </div>
+  </div-->
+</section>
+<script>
+	//c5 = document.getElementById("c5-id");
+	//c5.addEventListener("click",function(){alert({{topFunds[1]}})});
+	//c5.onclick= function(){alert("hello alert")};
+	//c5.onclick= myFunction('direct on click');
+	function myFunction(str){
+		alert(str);
+	}
+</script>
+
+{% endblock %}
