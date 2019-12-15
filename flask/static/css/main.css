@@ -134,8 +134,8 @@ th, td {
 }
 
 .column100.column1 {
-  width: 265px;
-  padding-left: 42px;
+  /*width: 265px;
+  padding-left: 42px;*/
 }
 
 .row100.head th {

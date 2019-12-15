@@ -10,69 +10,108 @@
 	  <textarea id="message" maxlength="1000" name="message" placeholder="Investor Objectives ?" >{{ message }}</textarea>
       <div class="crayonico"></div>
       <input class="btn btn-input" id="sendMessage" name="sendMessage" type="submit" value="Find Funds">
+	  
     </form>
   </div>
+  <div>
+	<h6><b>Hover or click on the score to see the fund objectives</b></h6>
+  </div>
+  
+  <img class="col-sm-3 col-sm-offset-4" src="{{ url_for('static',
+  filename='spinner.gif') }}" ng-show="loading">
+  
   <div class="table100 ver1 m-b-100">
 					<table data-vertable="ver1">
 						<thead>
 							<tr class="row100 head">
-								<th class="column100 column1" data-column="column1">Glove</th>
-								<th class="column100 column2" data-column="column2">Cosine</th>
-								<th class="column100 column4" data-column="column4">LSA</th>
-								<th class="column100 column3" data-column="column3">Elmo</th>
+								<th class="column100 column2" data-column="column1">Glove</th>
 								<th class="column100 column5" data-column="column5">Word2Vec</th>
+								<th class="column100 column2" data-column="column2">TFIDF</th>
+								<th class="column100 column4" data-column="column4">LSI</th>
+								<th class="column100 column3" data-column="column3">Elmo</th>
 								<th class="column100 column6" data-column="column6">USE</th>
-								<th class="column100 column7" data-column="column7">BERT</th>
+								<th class="column100 column7" data-column="column7">FastText</th>
+								<th class="column100 column8" data-column="column8">BERT</th>
 								
 							</tr>
 						</thead>
 						<tbody>
 							<tr class="row100">
-								<td class="column100 column1" data-column="column1"></td>
 								<td class="column100 column2" data-column="column2"></td>
-								<td class="column100 column3" data-column="column3"></td>
-								<td class="column100 column4" data-column="column4" title="{{topObjectives['ELMO'][0]}}" onclick="myFunction('{{topObjectives['ELMO'][0]}}')">{{ topScores['ELMO'][0] }}</td>
-								<td onclick="myFunction('{{topObjectives['Word2Vec'][0]}}')" class="column100 column5" data-column="column5" title="{{topObjectives['Word2Vec'][0]}}">{{ topScores['Word2Vec'][0] }}</td>
-								<td class="column100 column6" data-column="column6" title="{{topObjectives['USE'][0]}}" onclick="myFunction('{{topObjectives['USE'][0]}}')">{{ topScores['USE'][0] }}</td>
-								<td class="column100 column7" data-column="column7"></td>
+								
+								<td onclick="myFunction('{{topObjectives['Word2Vec'][0]}}')" class="column100 column5" data-column="column5" title="{{topObjectives['Word2Vec'][0]}}">{{ topScores['Word2Vec'][0] }}   {% if message %} [{{topDocIndex['Word2Vec'][0]}}] {% endif %}</td>
+								
+								<td class="column100 column2" data-column="column2" title="{{topObjectives['TFIDF'][0]}}" onclick="myFunction('{{topObjectives['TFIDF'][0]}}')">{{ topScores['TFIDF'][0] }}    {% if message %} [{{topDocIndex['TFIDF'][0]}}] {% endif %}</td>
+								
+								<td class="column100 column3" data-column="column3" title="{{topObjectives['LSI'][0]}}" onclick="myFunction('{{topObjectives['LSI'][0]}}')">{{ topScores['LSI'][0] }}    {% if message %} [{{topDocIndex['LSI'][0]}}] {% endif %}</td>
+								
+								<td class="column100 column4" data-column="column4" title="{{topObjectives['ELMO'][0]}}" onclick="myFunction('{{topObjectives['ELMO'][0]}}')">{{ topScores['ELMO'][0] }}    {% if message %} [{{topDocIndex['ELMO'][0]}}] {% endif %}</td>
+								
+								<td class="column100 column6" data-column="column6" title="{{topObjectives['USE'][0]}}" onclick="myFunction('{{topObjectives['USE'][0]}}')">{{ topScores['USE'][0] }}    {% if message %} [{{topDocIndex['USE'][0]}}] {% endif %}</td>
+								
+								<td class="column100 column7" data-column="column7" title="{{topObjectives['FastText'][0]}}" onclick="myFunction('{{topObjectives['FastText'][0]}}')">{{ topScores['FastText'][0] }}    {% if message %} [{{topDocIndex['FastText'][0]}}] {% endif %}</td>
+								
+								<td class="column100 column8" data-column="column8" title="{{topObjectives['BERT'][0]}}" onclick="myFunction('{{topObjectives['BERT'][0]}}')">{{ topScores['BERT'][0] }}</td>
 								
 							</tr>
 
 							<tr class="row100">
-								<td class="column100 column1" data-column="column1"></td>
 								<td class="column100 column2" data-column="column2"></td>
-								<td class="column100 column3" data-column="column3"></td>
-								<td class="column100 column4" data-column="column4" title="{{topObjectives['ELMO'][1]}}" onclick="myFunction('{{topObjectives['ELMO'][1]}}')">{{ topScores['ELMO'][1] }}</td>
-								<td class="column100 column5" data-column="column5" title="{{topObjectives['Word2Vec'][1]}}" onclick="myFunction('{{topObjectives['Word2Vec'][1]}}')" >{{ topScores['Word2Vec'][1] }}</td>
-								<td class="column100 column6" data-column="column6" title="{{topObjectives['USE'][1]}}" onclick="myFunction('{{topObjectives['USE'][1]}}')">{{ topScores['USE'][1] }}</td>
-								<td class="column100 column7" data-column="column7"></td>
+								
+								<td class="column100 column5" data-column="column5" title="{{topObjectives['Word2Vec'][1]}}" 
+								onclick="myFunction('{{topObjectives['Word2Vec'][1]}}')" >{{ topScores['Word2Vec'][1] }}   {% if message %} [{{topDocIndex['Word2Vec'][1]}}] {% endif %}</td>
+								
+								<td class="column100 column2" data-column="column2" title="{{topObjectives['TFIDF'][1]}}" onclick="myFunction('{{topObjectives['TFIDF'][1]}}')">{{ topScores['TFIDF'][1] }}    {% if message %} [{{topDocIndex['TFIDF'][1]}}] {% endif %}</td>
+								
+								<td class="column100 column3" data-column="column3" title="{{topObjectives['LSI'][1]}}" onclick="myFunction('{{topObjectives['LSI'][1]}}')">{{ topScores['LSI'][1] }}    {% if message %} [{{topDocIndex['LSI'][1]}}] {% endif %}</td>
+								
+								<td class="column100 column4" data-column="column4" title="{{topObjectives['ELMO'][1]}}" onclick="myFunction('{{topObjectives['ELMO'][1]}}')">{{ topScores['ELMO'][1] }}    {% if message %} [{{topDocIndex['ELMO'][1]}}] {% endif %}</td>
+								
+								
+								
+								<td class="column100 column6" data-column="column6" title="{{topObjectives['USE'][1]}}" onclick="myFunction('{{topObjectives['USE'][1]}}')">{{ topScores['USE'][1] }}    {% if message %} [{{topDocIndex['USE'][1]}}] {% endif %}</td>
+								
+								<td class="column100 column7" data-column="column7" title="{{topObjectives['FastText'][1]}}" onclick="myFunction('{{topObjectives['FastText'][0]}}')">{{ topScores['FastText'][1] }}    {% if message %} [{{topDocIndex['FastText'][1]}}] {% endif %}</td>
+								
+								<td class="column100 column8" data-column="column8" title="{{topObjectives['BERT'][1]}}" onclick="myFunction('{{topObjectives['BERT'][1]}}')">{{ topScores['BERT'][1] }}</td>
 								
 							</tr>
 
 							<tr class="row100">
-								<td class="column100 column1" data-column="column1"></td>
 								<td class="column100 column2" data-column="column2"></td>
-								<td class="column100 column3" data-column="column3"></td>
-								<td class="column100 column4" data-column="column4" title="{{topObjectives['ELMO'][2]}}" onclick="myFunction('{{topObjectives['ELMO'][2]}}')">{{ topScores['ELMO'][2] }}</td>
 								
-								<td class="column100 column5" data-column="column5" title="{{topObjectives['Word2Vec'][2]}}" onclick="myFunction('{{topObjectives['Word2Vec'][2]}}')" >{{ topScores['Word2Vec'][2] }}</td>
+								<td class="column100 column5" data-column="column5" title="{{topObjectives['Word2Vec'][2]}}" onclick="myFunction('{{topObjectives['Word2Vec'][2]}}')" >{{ topScores['Word2Vec'][2] }}   {% if message %} [{{topDocIndex['Word2Vec'][2]}}] {% endif %}</td>
 								
-								<td class="column100 column6" data-column="column6" title="{{topObjectives['USE'][2]}}"     onclick="myFunction('{{topObjectives['USE'][2]}}')">{{ topScores['USE'][2] }}</td>
+								<td class="column100 column2" data-column="column2" title="{{topObjectives['TFIDF'][2]}}" onclick="myFunction('{{topObjectives['TFIDF'][2]}}')">{{ topScores['TFIDF'][2] }}    {% if message %} [{{topDocIndex['TFIDF'][2]}}] {% endif %}</td>
 								
-								<td class="column100 column7" data-column="column7"></td>
+								<td class="column100 column3" data-column="column3" title="{{topObjectives['LSI'][2]}}" onclick="myFunction('{{topObjectives['LSI'][2]}}')">{{ topScores['LSI'][2] }}    {% if message %} [{{topDocIndex['LSI'][2]}}] {% endif %}</td>
+								
+								<td class="column100 column4" data-column="column4" title="{{topObjectives['ELMO'][2]}}" onclick="myFunction('{{topObjectives['ELMO'][2]}}')">{{ topScores['ELMO'][2] }}    {% if message %} [{{topDocIndex['ELMO'][2]}}] {% endif %}</td>
+								
+								<td class="column100 column6" data-column="column6" title="{{topObjectives['USE'][2]}}"     onclick="myFunction('{{topObjectives['USE'][2]}}')">{{ topScores['USE'][2] }}    {% if message %} [{{topDocIndex['USE'][2]}}] {% endif %}</td>
+								
+								<td class="column100 column7" data-column="column7" title="{{topObjectives['FastText'][2]}}" onclick="myFunction('{{topObjectives['FastText'][1]}}')">{{ topScores['FastText'][2] }}    {% if message %} [{{topDocIndex['FastText'][2]}}] {% endif %}</td>
+								
+								<td class="column100 column8" data-column="column8" title="{{topObjectives['BERT'][2]}}" onclick="myFunction('{{topObjectives['BERT'][2]}}')">{{ topScores['BERT'][2] }}</td>
 								
 							</tr>
 
 							<tr class="row100">
-								<td class="column100 column1" data-column="column1"></td>
 								<td class="column100 column2" data-column="column2"></td>
-								<td class="column100 column3" data-column="column3"></td>
 								
-								<td class="column100 column4" data-column="column4" title="{{topObjectives['ELMO'][3]}}" onclick="myFunction('{{topObjectives['ELMO'][3]}}')">{{ topScores['ELMO'][3] }}</td>
+								<td class="column100 column5" data-column="column5" title="{{topObjectives['Word2Vec'][3]}}" onclick="myFunction('{{topObjectives['Word2Vec'][3]}}')" >{{ topScores['Word2Vec'][3] }}   {% if message %} [{{topDocIndex['Word2Vec'][3]}}] {% endif %}</td>
 								
-								<td class="column100 column5" data-column="column5" title="{{topObjectives['Word2Vec'][3]}}" onclick="myFunction('{{topObjectives['Word2Vec'][3]}}')" >{{ topScores['Word2Vec'][3] }}</td>
-								<td class="column100 column6" data-column="column6" title="{{topObjectives['USE'][3]}}" onclick="myFunction('{{topObjectives['USE'][3]}}')">{{ topScores['USE'][3] }}</td>
-								<td class="column100 column7" data-column="column7"></td>
+								<td class="column100 column2" data-column="column2" title="{{topObjectives['TFIDF'][3]}}" onclick="myFunction('{{topObjectives['TFIDF'][3]}}')">{{ topScores['TFIDF'][3] }}    {% if message %} [{{topDocIndex['TFIDF'][3]}}] {% endif %}</td>
+								
+								<td class="column100 column3" data-column="column3" title="{{topObjectives['LSI'][3]}}" onclick="myFunction('{{topObjectives['LSI'][3]}}')">{{ topScores['LSI'][3] }}    {% if message %} [{{topDocIndex['LSI'][3]}}] {% endif %}</td>
+								
+								<td class="column100 column4" data-column="column4" title="{{topObjectives['ELMO'][3]}}" onclick="myFunction('{{topObjectives['ELMO'][3]}}')">{{ topScores['ELMO'][3] }}    {% if message %} [{{topDocIndex['ELMO'][3]}}] {% endif %}</td>
+								
+								<td class="column100 column6" data-column="column6" title="{{topObjectives['USE'][3]}}" onclick="myFunction('{{topObjectives['USE'][3]}}')">{{ topScores['USE'][3] }}    {% if message %} [{{topDocIndex['USE'][3]}}] {% endif %}</td>
+								
+								<td class="column100 column7" data-column="column7" title="{{topObjectives['FastText'][3]}}" onclick="myFunction('{{topObjectives['FastText'][2]}}')">{{ topScores['FastText'][3] }}    {% if message %} [{{topDocIndex['FastText'][3]}}] {% endif %}</td>
+								
+								<td class="column100 column8" data-column="column8" title="{{topObjectives['BERT'][3]}}" onclick="myFunction('{{topObjectives['BERT'][3]}}')">{{ topScores['BERT'][3] }}</td>
 								
 							</tr>
 
@@ -82,7 +121,7 @@
 						</tbody>
 					</table>
 				</div>
-				
+			
   <!--div class="columns features">
     <div class="one-third first">
       <h3>Minimal</h3>
