@@ -10,3 +10,6 @@ https://github.com/mohammed-fakruddin/NLPLinguisticSearchEngineForFundIndustry/b
 
 # Detailed Presentation
 https://github.com/mohammed-fakruddin/NLPLinguisticSearchEngineForFundIndustry/blob/master/documents/FM_ProjectSlides_V3.pptx
+
+# Video
+<iframe width="560" height="315" src="https://www.youtube.com/embed/spkuaf-rd7g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
