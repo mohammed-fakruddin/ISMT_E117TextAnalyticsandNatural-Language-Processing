@@ -5,5 +5,6 @@ The business objective is to provide the large and growing number of average inv
 https://youtu.be/spkuaf-rd7g
 # Site Link
 # One Paer Summary
+https://github.com/mohammed-fakruddin/NLPLinguisticSearchEngineForFundIndustry/blob/master/documents/LinguisticSearchEngineForFundObjectives.pdf
 
 # Detailed Presentation
