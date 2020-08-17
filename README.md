@@ -8,3 +8,4 @@ https://youtu.be/spkuaf-rd7g
 https://github.com/mohammed-fakruddin/NLPLinguisticSearchEngineForFundIndustry/blob/master/documents/LinguisticSearchEngineForFundObjectives.pdf
 
 # Detailed Presentation
+https://github.com/mohammed-fakruddin/NLPLinguisticSearchEngineForFundIndustry/blob/master/documents/FM_ProjectSlides_V3.pptx
